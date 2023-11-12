@@ -1,10 +1,12 @@
 <template>
   <div class="text-right">
-    <div class="w-full mt-8 overflow-x-scroll md:overflow-auto text-left mb-4">
-      <h2 class="font-bold uppercase mb-4">Job Posts</h2>
-      <Datatable :headers="tableHeaders" :data="jobs.data.slice(0,5)" :hideActions="true" />    
+    <div class="w-full mt-8 mb-4 overflow-x-scroll text-left md:overflow-auto">
+      <h2 class="mb-4 font-bold uppercase">Job Posts</h2>
+      <div class="w-full border-2 border-gray-500 rounded-t-md">
+        <Datatable :headers="tableHeaders" :data="jobs.data.slice(0,5)" :hideActions="true" />
+      </div>    
     </div>
-    <router-link to="/admin/jobs" class="text-md text-gray-500 font-thin">View All Jobs &gt;</router-link>
+    <router-link to="/admin/jobs" class="font-thin text-gray-500 text-md">View All Jobs &gt;</router-link>
   </div>
 </template>
 

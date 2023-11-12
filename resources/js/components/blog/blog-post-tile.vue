@@ -1,19 +1,8 @@
 <template>
-  <div class="
-      w-full
-      max-w-sm
-      flex flex-col
-      content-between
-      p-6
-      border border-black
-      bg-white
-      rounded-md
-      mt-4
-      mx-auto
-      md:mr-6
-    ">
+  <div
+    class="flex flex-col content-between w-full max-w-sm p-6 mx-auto mt-4 bg-white border border-black rounded-md  md:mr-6">
     <div class="flex flex-col">
-      <img :src="img" class="w-full h-48 rounded-lg object-cover mb-2" />
+      <img :src="img" class="object-cover w-full h-48 mb-2 rounded-lg" />
       <a href="#!">
         <h4 class="max-w-[10em] truncate font-normal text-2xl mb-2">{{ title }}</h4>
       </a>
@@ -22,8 +11,10 @@
       </p>
       <div class="flex flex-row justify-between mt-16">
         <div>
-          <router-link :to="`/admin/content-management/blog/post/${id}`" class="text-black text-base">Edit Post</router-link>
-          <a href="#!" @click.prevent="togglePublishedStatus(id)" class="text-gray-400 text-base ml-4">{{ (published) ? 'Hide Post' : 'Show Post' }}</a>
+          <router-link :to="`/admin/content-management/blog/post/${id}`" class="text-base text-black">Edit
+            Post</router-link>
+          <a href="#!" @click.prevent="togglePublishedStatus(id)" class="ml-4 text-base text-gray-400">{{ (published) ?
+            'Hide Post' : 'Show Post' }}</a>
         </div>
         <div>
           <a href="#!" @click.prevent="deletePost(id)"><font-awesome-icon :icon="['fas', 'trash']" /></a>

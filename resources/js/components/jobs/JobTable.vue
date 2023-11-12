@@ -1,36 +1,17 @@
 <template>
   <div class="w-full">
-    <div class="
-        w-full
-        flex flex-col
-        md:flex-row
-        justify-between
-        items-center
-        mt-12
-        mb-4
-      ">
+    <div class="flex flex-col items-center justify-between w-full mt-12 mb-4 md:flex-row">
       <Search @search-form="searchForm" />
       <FilterButton @change-filter="changeFilter" :current="filter" :values="this.filterOptions" />
     </div>
     <div class="w-full" style="max-height: 500px;">
-      <div class="w-full flex flex-row justify-center md:justify-end mb-4">
-        <button @click.prevent="fetchData()" class="button py-2 mr-0">
+      <div class="flex flex-row justify-center w-full mb-4 md:justify-end">
+        <button @click.prevent="fetchData()" class="py-2 mr-0 button">
           <font-awesome-icon :icon="['fas', 'refresh']" />
         </button>
-        <a href="#!" class="
-            w-40
-            h-11
-            px-2
-            py-3
-            border border-gray-300
-            bg-teal-400
-            text-white
-            font-bold
-            text-sm text-center
-            rounded-lg
-            hover:bg-green-400
-            ml-4
-          " @click="openCreateForm()">+ Add New Job</a>
+        <a href="#!"
+          class="w-40 px-2 py-3 ml-4 text-sm font-bold text-center text-white bg-teal-400 border border-gray-300 rounded-lg h-11 hover:bg-green-400"
+          @click="openCreateForm()">+ Add New Job</a>
       </div>
       <div class="w-full overflow-x-auto" style="max-height: 800px;">
         <Datatable :headers="tableHeaders" :data="jobs.data" :allowedActions="allowedActions" :editMethod="openEditForm"
@@ -68,29 +49,12 @@
         </p>
 
         <div class="flex flex-row mt-4">
-          <a href="#!" class="
-              w-32
-              px-4
-              py-2
-              border border-teal-400
-              text-black
-              font-bold
-              text-sm text-center
-              uppercase
-              mr-6
-              hover:bg-teal-400
-            " @click="deleteJob(job.id)">Ok, Confirm</a>
-          <a href="#!" class="
-              w-24
-              px-4
-              py-2
-              border border-gray-300
-              text-black
-              font-bold
-              text-sm text-center
-              uppercase
-              hover:bg-gray-200
-            " @click="this.showDeleteDialog = false">Cancel</a>
+          <a href="#!"
+            class="w-32 px-4 py-2 mr-6 text-sm font-bold text-center text-black uppercase border border-teal-400 hover:bg-teal-400"
+            @click="deleteJob(job.id)">Ok, Confirm</a>
+          <a href="#!"
+            class="w-24 px-4 py-2 text-sm font-bold text-center text-black uppercase border border-gray-300 hover:bg-gray-200"
+            @click="this.showDeleteDialog = false">Cancel</a>
         </div>
       </template>
     </ConfirmDialog>

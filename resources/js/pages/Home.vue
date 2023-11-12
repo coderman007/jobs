@@ -2,10 +2,11 @@
   <div class="max-w-[128em] min-h-screen mx-auto px-4">
     <DashboardHeader
       :title="`Welcome, ${userDetails.data.name}`"
-      subTitle="Here's a quick insight on the system."
+      subTitle=""
     />
+    <p>Here's a quick insight on the system.</p>
     <Insights />
-    <div class="w-full grid grid-cols-1 md:grid-cols-6">
+    <div class="grid w-full grid-cols-1 md:grid-cols-6">
       <div class="flex flex-col col-span-1 md:col-span-4 md:pr-4">
         <Jobs />
         <Partners />

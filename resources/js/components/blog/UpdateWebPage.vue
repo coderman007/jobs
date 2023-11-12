@@ -1,58 +1,40 @@
 <template>
   <div class="w-[60em]">
     <div class="mb-4">
-      <label class="block uppercase tracking-wide text-xs font-bold">Title</label>
-      <input class="w-full mt-2 p-4 border-2 rounded-md" v-model="form.title" type="text" name="name"
+      <label class="block text-xs font-bold tracking-wide uppercase">Title</label>
+      <input class="w-full p-4 mt-2 border-2 rounded-md" v-model="form.title" type="text" name="name"
         placeholder="Web Page Name" />
     </div>
     <div v-if="form.body != null" class="mb-28">
-      <label class="block uppercase tracking-wide text-xs font-bold">Body</label>
+      <label class="block text-xs font-bold tracking-wide uppercase">Body</label>
       <WYSIWYG :modelValue="form.body" @update:modelValue="newValue => form.body = newValue" />
     </div>
     <div class="mb-4 text-left">
-      <label class="block uppercase tracking-wide text-xs font-bold">Is Published?</label>
-      <input class="mt-2 p-4 border-2 rounded-md" v-model="form.is_published" :checked="form.is_published"
-        type="checkbox" name="published" />
+      <label class="block text-xs font-bold tracking-wide uppercase">Is Published?</label>
+      <input class="p-4 mt-2 border-2 rounded-md" v-model="form.is_published" :checked="form.is_published" type="checkbox"
+        name="published" />
     </div>
     <div class="mb-4">
-      <label class="block uppercase tracking-wide text-xs font-bold">Page Status</label>
+      <label class="block text-xs font-bold tracking-wide uppercase">Page Status</label>
       <select v-model="form.status" class="px-2 py-4 mt-2 rounded-base">
         <option value="active">Active</option>
         <option value="paused">Paused</option>
       </select>
     </div>
     <Transition>
-      <p v-show="showSuccessMsg" class="raleway-font pt-4 text-teal-600 font-bold">
+      <p v-show="showSuccessMsg" class="pt-4 font-bold text-teal-600 raleway-font">
         Web Page updated successfully.
       </p>
     </Transition>
     <div class="flex justify-between mt-10">
-      <a href="#!" class="
-            w-38
-            px-4
-            py-2
-            border border-red-300
-            bg-red-200
-            text-black
-            font-bold
-            text-sm text-center
-            uppercase
-            hover:bg-white
-          " @click.prevent="openDeleteDialog">
+      <a href="#!"
+        class="px-4 py-2 text-sm font-bold text-center text-black uppercase bg-red-200 border border-red-300  w-38 hover:bg-white"
+        @click.prevent="openDeleteDialog">
         <font-awesome-icon :icon="['fas', 'trash']" /> Delete Page
       </a>
-      <a href="#!" class="
-            w-24
-            px-4
-            py-2
-            border border-gray-300
-            bg-gray-200
-            text-black
-            font-bold
-            text-sm text-center
-            uppercase
-            hover:bg-white
-          " @click="submit">Update</a>
+      <a href="#!"
+        class="w-24 px-4 py-2 text-sm font-bold text-center text-black uppercase bg-gray-200 border border-gray-300  hover:bg-white"
+        @click="submit">Update</a>
     </div>
 
     <ConfirmDialog v-if="showDeleteDialog" @closeModal="closeDialog">
@@ -66,29 +48,12 @@
         </p>
 
         <div class="flex flex-row mt-4">
-          <a href="#!" class="
-              w-32
-              px-4
-              py-2
-              border border-teal-400
-              text-black
-              font-bold
-              text-sm text-center
-              uppercase
-              mr-6
-              hover:bg-teal-400
-            " @click="deletePage">Ok, Confirm</a>
-          <a href="#!" class="
-              w-24
-              px-4
-              py-2
-              border border-gray-300
-              text-black
-              font-bold
-              text-sm text-center
-              uppercase
-              hover:bg-gray-200
-            " @click="this.showDeleteDialog = false">Cancel</a>
+          <a href="#!"
+            class="w-32 px-4 py-2 mr-6 text-sm font-bold text-center text-black uppercase border border-teal-400  hover:bg-teal-400"
+            @click="deletePage">Ok, Confirm</a>
+          <a href="#!"
+            class="w-24 px-4 py-2 text-sm font-bold text-center text-black uppercase border border-gray-300  hover:bg-gray-200"
+            @click="this.showDeleteDialog = false">Cancel</a>
         </div>
       </template>
     </ConfirmDialog>

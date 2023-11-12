@@ -1,7 +1,7 @@
 <template>
   <div class="w-full mt-8">
-    <div class="w-full flex justify-between">
-      <h2 class="font-bold uppercase mb-4">Blog Posts</h2>
+    <div class="flex justify-between w-full">
+      <h2 class="mb-4 font-bold uppercase">Blog Posts</h2>
     </div>
     <div v-if="posts.data">
       <div v-if="posts.data[0]">
@@ -14,7 +14,7 @@
         <Post :img="posts.data[2].featured_image" :name="posts.data[2].title" :date="posts.data[2].published_date"   />
       </div>
     </div>
-    <router-link to="/admin/content-management" class="text-md text-gray-500 font-thin">View All Posts &gt;</router-link>
+    <router-link to="/admin/content-management" class="font-semibold text-gray-700 hover:text-blue-700 text-md">View All Posts &gt;</router-link>
   </div>
 </template>
 
